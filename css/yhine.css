@@ -316,6 +316,7 @@ img {
 
 .silt {
   position: absolute;
+  z-index: 1; /* silt on alati pildi peal, mitte all */
   top: 10px;
   left: 10px;
   padding: 3px 8px;
