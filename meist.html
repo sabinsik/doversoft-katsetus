@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meist — Doversoft</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+  <link rel="stylesheet" href="css/yhine.css">
+  <link rel="stylesheet" href="css/meist.css">
+</head>
+<body>
+
+  <!-- Ülemine riba -->
+  <div class="ylariba">
+    <div class="konteiner">
+      <span>🚚 Tasuta tarne alates 50 €</span>
+      <span class="peida-mobiilis">📄 Ettevõtetele arvega</span>
+      <span>☎ +372 5805 6960</span>
+    </div>
+  </div>
+
+  <!-- Päis: logo, otsing, ostukorv -->
+  <header class="pais">
+    <div class="konteiner pais-sisu">
+      <a href="index.html" class="logo"><img src="img/logo.svg" alt="Doversofti logo"><span>dover<b>soft</b></span></a>
+      <div class="rippmenyy">
+        <button type="button" class="nupp nupp-tume" id="rippmenyy-nupp" aria-expanded="false" aria-controls="rippmenyy-loend" aria-label="Tooted">☰ <span class="rippmenyy-tekst">Tooted</span></button>
+        <ul class="rippmenyy-loend" id="rippmenyy-loend">
+          <li><a href="kataloog.html">Kõik tooted</a></li>
+          <li><a href="kataloog.html?kat=kirjutus">✏️ Kirjutamine</a></li>
+          <li><a href="kataloog.html?kat=paber">📦 Paber</a></li>
+          <li><a href="kataloog.html?kat=arhiiv">📁 Arhiveerimine</a></li>
+          <li><a href="kataloog.html?kat=kontor">✂️ Kontoritarbed</a></li>
+          <li><a href="kataloog.html?kat=kool">🎨 Kool ja hobi</a></li>
+          <li><a href="kataloog.html?kat=kohv">☕ Kohvipaus</a></li>
+          <li><a href="kataloog.html?kat=puhastus">🧴 Puhastus</a></li>
+          <li><a href="kataloog.html?soodus=1">% Soodustused</a></li>
+        </ul>
+      </div>
+      <form class="otsing" action="kataloog.html" method="get">
+        <label for="otsi" class="peidetud">Otsi tooteid</label>
+        <input type="search" id="otsi" name="otsi" placeholder="Otsi tooteid, brände või koodi…">
+        <button type="submit" class="nupp nupp-sinine">Otsi</button>
+      </form>
+      <a href="meist.html" class="pais-link aktiivne" aria-current="page">Meist</a>
+      <a href="ostukorv.html" class="korvi-link">🛒 Korv <span class="korvi-arv">0</span></a>
+    </div>
+  </header>
+
+  <!-- Kategooriate menüü -->
+  <nav class="menyy" aria-label="Kategooriad">
+    <ul class="konteiner">
+      <li><a href="kataloog.html?kat=kirjutus">✏️ Kirjutamine</a></li>
+      <li><a href="kataloog.html?kat=paber">📦 Paber</a></li>
+      <li><a href="kataloog.html?kat=arhiiv">📁 Arhiveerimine</a></li>
+      <li><a href="kataloog.html?kat=kontor">✂️ Kontoritarbed</a></li>
+      <li><a href="kataloog.html?kat=kool">🎨 Kool ja hobi</a></li>
+      <li><a href="kataloog.html?kat=kohv">☕ Kohvipaus</a></li>
+      <li><a href="kataloog.html?kat=puhastus">🧴 Puhastus</a></li>
+      <li><a href="kataloog.html?soodus=1">% Soodustused</a></li>
+    </ul>
+  </nav>
+
+  <main class="konteiner">
+    <p class="leivapuru"><a href="index.html">Avaleht</a> / Meist</p>
+
+    <!-- Firmast: tekst on võetud tiimi esialgsest meist.html lehest -->
+    <section class="meist-hero">
+      <div>
+        <span class="meist-silt">Firmast</span>
+        <h1>Doversoft — kontoritarbed üle Eesti</h1>
+        <p>
+          Doversoft OÜ on Eestis kontoritarvete ja kulumaterjalide jae- ja hulgimüügiga
+          tegelev ettevõte. Meie tegevusgeograafia katab tervet Eestit.
+        </p>
+        <p>
+          Meie tootevalikusse kuuluvad tuntud rahvusvahelised kaubamärgid ning oma valdkonna
+          hinnatud turuliidrite tooted.
+        </p>
+        <p class="meist-esile">
+          Ole Sa suur- või väikeettevõte, eraisik või riigiasutus — meie tootevalikust leiad just
+          Sinu vajadustele vastavad lahendused oma büroo või kodukontori varustamiseks!
+        </p>
+      </div>
+      <div class="meist-pildid" aria-hidden="true">
+        <div class="kast"><img src="img/kaust.svg" alt=""></div>
+        <div class="kast"><img src="img/paber.svg" alt=""></div>
+        <div class="kast"><img src="img/kohv.svg" alt=""></div>
+        <div class="kast"><img src="img/pliiats.svg" alt=""></div>
+      </div>
+    </section>
+
+    <!-- Numbrid: JS loeb need nullist üles, kui need ekraanile jõuavad -->
+    <section class="numbrid" aria-label="Doversoft numbrites">
+      <div class="number-kaart"><b data-loe="15">0</b><span>aastat turul</span></div>
+      <div class="number-kaart"><b data-loe="2500">0</b><span>toodet valikus</span></div>
+      <div class="number-kaart"><b data-loe="1200">0</b><span>ärikliendi</span></div>
+      <div class="number-kaart"><b data-loe="15">0</b><span>maakonda, kuhu toome</span></div>
+    </section>
+
+    <!-- Ostutingimused: JS avab ja sulgeb vastused -->
+    <section class="sektsioon" id="tingimused">
+      <h2>Ostutingimused</h2>
+      <div class="akordion">
+        <div class="akordion-osa">
+          <button type="button" class="akordion-nupp" aria-expanded="false">Kuidas tellida?</button>
+          <div class="akordion-sisu">
+            <p>Lisa tooted ostukorvi, vali tarneviis ja sisesta oma andmed. Tellimuse kinnituse saad e-postile.
+              Kui tead tootekoodi, kasuta pealehel <a href="index.html#kiir-vorm">kiirtellimust</a>.</p>
+          </div>
+        </div>
+        <div class="akordion-osa">
+          <button type="button" class="akordion-nupp" aria-expanded="false">Tarne ja tarneajad</button>
+          <div class="akordion-sisu">
+            <p>Järeletulek Tallinnas on tasuta. Pakiautomaati toome 1–2 tööpäevaga (2,99 €) ja kulleriga ukseni
+              1 tööpäevaga (5,99 €). Üle 50 € tellimused toome tasuta.</p>
+          </div>
+        </div>
+        <div class="akordion-osa">
+          <button type="button" class="akordion-nupp" aria-expanded="false">Maksmine</button>
+          <div class="akordion-sisu">
+            <p>Eraisikud saavad maksta pangalingi või kaardiga. Ettevõtetele ja riigiasutustele väljastame arve
+              14-päevase maksetähtajaga.</p>
+          </div>
+        </div>
+        <div class="akordion-osa">
+          <button type="button" class="akordion-nupp" aria-expanded="false">Tagastamine</button>
+          <div class="akordion-sisu">
+            <p>Avamata pakendis kauba võid tagastada 14 päeva jooksul. Võta meiega ühendust e-posti teel ja
+              anname juhised tagastamiseks.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section class="sektsioon kontakt" id="kontakt">
+      <div class="kontakt-info">
+        <h2>Kontakt</h2>
+        <p>Küsimused toodete, hulgihindade või tellimuse kohta? Kirjuta meile, vastame ühe tööpäeva jooksul.</p>
+        <ul>
+          <li><b>Telefon</b><a href="tel:+37258056960">+372 5805 6960</a></li>
+          <li><b>E-post</b><a href="mailto:info@doversoft.ee">info@doversoft.ee</a></li>
+          <li><b>Aadress</b>Tallinn, Eesti</li>
+          <li><b>Lahtiolekuajad</b>E–R 9.00–17.00</li>
+        </ul>
+      </div>
+
+      <!-- Kontaktivorm: JS kontrollib andmed enne saatmist -->
+      <form class="kontakt-vorm" id="kontakt-vorm" novalidate>
+        <div class="vali">
+          <label for="k-nimi">Nimi</label>
+          <input type="text" id="k-nimi" name="nimi" autocomplete="name">
+          <span class="vea-tekst"></span>
+        </div>
+        <div class="vali">
+          <label for="k-email">E-post</label>
+          <input type="email" id="k-email" name="email" autocomplete="email">
+          <span class="vea-tekst"></span>
+        </div>
+        <div class="vali">
+          <label for="k-sonum">Sõnum</label>
+          <textarea id="k-sonum" name="sonum" rows="5"></textarea>
+          <span class="vea-tekst"></span>
+        </div>
+        <button type="submit" class="nupp nupp-sinine">Saada sõnum</button>
+        <p class="vorm-valmis" id="vorm-valmis" hidden>Aitäh! Sinu sõnum on kirja pandud — võtame peagi ühendust.</p>
+      </form>
+    </section>
+  </main>
+
+  <!-- Jalus -->
+  <footer class="jalus">
+    <div class="konteiner">
+      <div class="jalus-grid">
+        <div>
+          <a href="index.html" class="logo"><img src="img/logo.svg" alt="Doversofti logo"><span>dover<b>soft</b></span></a>
+          <p>Kontori- ja koolitarbed ettevõtetele ja kodudele üle Eesti.</p>
+        </div>
+        <div>
+          <h4>Pood</h4>
+          <ul>
+            <li><a href="kataloog.html">Kataloog</a></li>
+            <li><a href="kataloog.html?soodus=1">Soodustused</a></li>
+            <li><a href="ostukorv.html">Ostukorv</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Info</h4>
+          <ul>
+            <li><a href="ostukorv.html#tarne">Tarne ja maksmine</a></li>
+            <li><a href="index.html#kiir-vorm">Kiirtellimus</a></li>
+            <li><a href="meist.html">Meist</a></li>
+            <li><a href="meist.html#tingimused">Ostutingimused</a></li>
+            <li><a href="meist.html#kontakt">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontakt</h4>
+          <ul>
+            <li>+372 5805 6960</li>
+            <li>info@doversoft.ee</li>
+            <li>Tallinn, Eesti</li>
+          </ul>
+        </div>
+      </div>
+      <p class="jalus-alumine">© 2026 Doversoft · Tartu Ülikooli rühmatöö (LTAT.03.002)</p>
+    </div>
+  </footer>
+
+  <script src="js/tooted.js"></script>
+  <script src="js/yhine.js"></script>
+  <script src="js/meist.js"></script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+/* ==========================================================
+   meist.css — ainult "Meist" lehe stiilid
+   (firma tutvustus, numbrid, ostutingimused, kontakt)
+   Branch: feature/meist
+   ========================================================== */
+
+/* ---------- Firmast ---------- */
+.meist-hero {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 40px;
+  align-items: center;
+  background: var(--valge);
+  border: 1px solid var(--joon);
+  border-radius: var(--raadius);
+  padding: 40px;
+  margin-top: 16px;
+}
+
+.meist-silt {
+  display: inline-block;
+  background: var(--sinine-hele);
+  color: var(--sinine);
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.meist-hero h1 {
+  font-size: 34px;
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+
+.meist-hero p {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.meist-esile {
+  border-left: 4px solid var(--kollane);
+  padding-left: 16px;
+  color: var(--tume);
+  font-weight: 500;
+}
+
+.meist-pildid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.meist-pildid .kast {
+  background: var(--taust);
+  border-radius: var(--raadius);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
+
+.meist-pildid img {
+  width: 55%;
+}
+
+/* ---------- Numbrid ---------- */
+.numbrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.number-kaart {
+  background: var(--sinine);
+  color: var(--valge);
+  border-radius: var(--raadius);
+  padding: 24px;
+  text-align: center;
+}
+
+.number-kaart b {
+  display: block;
+  font-size: 34px;
+  font-weight: 800;
+}
+
+.number-kaart span {
+  color: #dbe2ff;
+}
+
+/* ---------- Ostutingimused (akordion) ---------- */
+.akordion {
+  background: var(--valge);
+  border: 1px solid var(--joon);
+  border-radius: var(--raadius);
+  overflow: hidden;
+}
+
+.akordion-osa + .akordion-osa {
+  border-top: 1px solid var(--joon);
+}
+
+.akordion-nupp {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: 0;
+  padding: 18px 24px;
+  font: inherit;
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--tume);
+  text-align: left;
+  cursor: pointer;
+}
+
+.akordion-nupp::after {
+  content: "+";
+  font-size: 22px;
+  color: var(--sinine);
+  transition: transform 0.2s;
+}
+
+.akordion-nupp[aria-expanded="true"]::after {
+  transform: rotate(45deg);
+}
+
+.akordion-nupp:hover {
+  background: var(--taust);
+}
+
+/* Vastus on peidus, kuni JS lisab klassi "lahti" */
+.akordion-sisu {
+  display: none;
+  padding: 0 24px 18px;
+  line-height: 1.7;
+}
+
+.akordion-osa.lahti .akordion-sisu {
+  display: block;
+}
+
+.akordion-sisu a {
+  color: var(--sinine);
+  font-weight: 600;
+}
+
+/* ---------- Kontakt ---------- */
+.kontakt {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  background: var(--valge);
+  border: 1px solid var(--joon);
+  border-radius: var(--raadius);
+  padding: 32px;
+}
+
+.kontakt-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+}
+
+.kontakt-info li {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--joon);
+}
+
+.kontakt-info li b {
+  font-size: 13px;
+  color: var(--hall);
+  font-weight: 600;
+}
+
+.kontakt-info a {
+  color: var(--sinine);
+  font-weight: 600;
+}
+
+.kontakt-vorm .vali {
+  margin-bottom: 8px;
+}
+
+.kontakt-vorm label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: var(--tume);
+}
+
+.kontakt-vorm input,
+.kontakt-vorm textarea {
+  width: 100%;
+  border: 1px solid var(--joon);
+  border-radius: 10px;
+  padding: 11px 12px;
+  font: inherit;
+  resize: vertical;
+}
+
+.kontakt-vorm input:focus,
+.kontakt-vorm textarea:focus {
+  outline: 2px solid var(--sinine-hele);
+  border-color: var(--sinine);
+}
+
+.kontakt-vorm .vigane input,
+.kontakt-vorm .vigane textarea {
+  border-color: var(--punane);
+}
+
+.vea-tekst {
+  color: var(--punane);
+  font-size: 13px;
+  min-height: 18px;
+  display: block;
+}
+
+.vorm-valmis {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: var(--raadius-vaike);
+  background: #e8f7ee;
+  color: var(--roheline);
+  font-weight: 600;
+}
+
+/* ---------- Mobiil ---------- */
+@media (max-width: 760px) {
+  .meist-hero,
+  .kontakt {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+
+  .meist-hero h1 {
+    font-size: 26px;
+  }
+
+  .numbrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

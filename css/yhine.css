@@ -1,0 +1,579 @@
+/* ==========================================================
+   yhine.css — KÕIGI lehtede ühised stiilid
+   (värvid, kirjad, päis, menüü, nupud, tootekaart, jalus)
+   Branch: feature/disain
+   ========================================================== */
+
+/* ---------- Värvid ja muutujad ---------- */
+:root {
+  --sinine: #2447f5;
+  --sinine-tume: #1b38d6;
+  --sinine-hele: #eef1ff;
+  --kollane: #ffb020;
+  --kollane-tume: #f29a00;
+  --tume: #0f172a;
+  --tekst: #334155;
+  --hall: #64748b;
+  --joon: #e6e9f0;
+  --taust: #f5f6fa;
+  --valge: #ffffff;
+  --roheline: #16a34a;
+  --punane: #e5484d;
+  --raadius: 16px;
+  --raadius-vaike: 10px;
+  --vari: 0 10px 30px -12px rgba(15, 23, 42, 0.18);
+  --vari-vaike: 0 1px 3px rgba(15, 23, 42, 0.08);
+  --laius: 1240px;
+}
+
+/* ---------- Põhi ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--tekst);
+  background: var(--taust);
+}
+
+h1, h2, h3, h4 {
+  color: var(--tume);
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.konteiner {
+  max-width: var(--laius);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Peidab elemendi silmale, aga ekraanilugeja loeb selle ette (vormide sildid) */
+.peidetud {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- Nupud ---------- */
+.nupp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.nupp:active {
+  transform: scale(0.97);
+}
+
+.nupp-sinine {
+  background: var(--sinine);
+  color: var(--valge);
+}
+
+.nupp-sinine:hover {
+  background: var(--sinine-tume);
+}
+
+.nupp-kollane {
+  background: var(--kollane);
+  color: var(--tume);
+}
+
+.nupp-kollane:hover {
+  background: var(--kollane-tume);
+}
+
+.nupp-tume {
+  background: var(--tume);
+  color: var(--valge);
+}
+
+.nupp-hele {
+  background: var(--sinine-hele);
+  color: var(--sinine);
+}
+
+/* ---------- Ülemine riba ---------- */
+.ylariba {
+  background: var(--tume);
+  color: #cbd5e1;
+  font-size: 13px;
+}
+
+.ylariba .konteiner {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  gap: 16px;
+}
+
+/* ---------- Päis ---------- */
+.pais {
+  background: var(--valge);
+  border-bottom: 1px solid var(--joon);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.pais-sisu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--tume);
+}
+
+.logo img {
+  width: 34px;
+  height: 34px;
+}
+
+.logo b {
+  color: var(--sinine);
+}
+
+.otsing {
+  flex: 1;
+  display: flex;
+  background: var(--taust);
+  border-radius: 12px;
+  padding: 4px;
+}
+
+.otsing input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  padding: 8px 12px;
+  font: inherit;
+  outline: none;
+}
+
+.otsing button {
+  padding: 8px 16px;
+}
+
+.korvi-link {
+  position: relative;
+  font-weight: 600;
+  color: var(--tume);
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--sinine-hele);
+}
+
+.korvi-arv {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 11px;
+  background: var(--kollane);
+  color: var(--tume);
+  font-size: 12px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+}
+
+/* ---------- Menüü ---------- */
+.menyy {
+  background: var(--valge);
+  border-bottom: 1px solid var(--joon);
+}
+
+.menyy ul {
+  list-style: none;
+  margin: 0 auto;
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+}
+
+.menyy a {
+  display: block;
+  padding: 12px 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+}
+
+.menyy a:hover,
+.menyy a.aktiivne {
+  color: var(--sinine);
+  border-bottom-color: var(--sinine);
+}
+
+/* ---------- Pealkiri + "vaata kõiki" ---------- */
+.sektsioon {
+  margin: 48px 0;
+}
+
+.sektsiooni-pais {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 20px;
+}
+
+.sektsiooni-pais h2 {
+  font-size: 26px;
+  margin: 0;
+}
+
+.sektsiooni-pais a {
+  color: var(--sinine);
+  font-weight: 600;
+}
+
+/* ---------- Tootekaart (kasutavad pealeht ja kataloog) ---------- */
+.tooted-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.toode {
+  background: var(--valge);
+  border: 1px solid var(--joon);
+  border-radius: var(--raadius);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.toode:hover {
+  box-shadow: var(--vari);
+  transform: translateY(-3px);
+}
+
+.toode-pilt {
+  position: relative;
+  background: var(--taust);
+  border-radius: var(--raadius-vaike);
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+  margin-bottom: 12px;
+}
+
+.toode-pilt img {
+  width: 60%;
+}
+
+.silt {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--valge);
+  background: var(--sinine);
+}
+
+.silt-soodus {
+  background: var(--punane);
+}
+
+.silt-uus {
+  background: var(--roheline);
+}
+
+.toode-brand {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--sinine);
+  text-transform: uppercase;
+}
+
+.toode h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 4px 0 6px;
+  flex: 1;
+}
+
+.toode-laos {
+  font-size: 13px;
+  color: var(--roheline);
+  margin: 0 0 10px;
+}
+
+.toode-all {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.hind {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--tume);
+}
+
+.vana-hind {
+  font-size: 13px;
+  color: var(--hall);
+  text-decoration: line-through;
+  margin-left: 6px;
+}
+
+.toode .nupp {
+  padding: 9px 12px;
+  font-size: 14px;
+}
+
+/* ---------- Teade "Lisatud korvi" ---------- */
+.teade {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translate(-50%, 120px);
+  background: var(--tume);
+  color: var(--valge);
+  padding: 12px 20px;
+  border-radius: 12px;
+  box-shadow: var(--vari);
+  transition: transform 0.3s;
+  z-index: 50;
+}
+
+.teade.nahtav {
+  transform: translate(-50%, 0);
+}
+
+/* ---------- Jalus ---------- */
+.jalus {
+  background: var(--tume);
+  color: #94a3b8;
+  margin-top: 64px;
+  padding: 48px 0 24px;
+}
+
+.jalus-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 32px;
+}
+
+.jalus h4 {
+  color: var(--valge);
+  font-size: 15px;
+}
+
+.jalus ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.jalus li {
+  margin-bottom: 6px;
+}
+
+.jalus a:hover {
+  color: var(--valge);
+}
+
+.jalus .logo {
+  color: var(--valge);
+  margin-bottom: 12px;
+}
+
+.jalus-alumine {
+  border-top: 1px solid #1e293b;
+  margin-top: 32px;
+  padding-top: 20px;
+  font-size: 13px;
+}
+
+/* ---------- Mobiil ---------- */
+@media (max-width: 760px) {
+  .ylariba .peida-mobiilis {
+    display: none;
+  }
+
+  .pais-sisu {
+    flex-wrap: wrap;
+  }
+
+  .otsing {
+    order: 3;
+    flex-basis: 100%;
+  }
+
+  .korvi-link {
+    margin-left: auto;
+  }
+
+  .jalus-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tooted-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
+/* ---------- Alamlehtede ühised osad (kataloog, ostukorv) ---------- */
+.leivapuru {
+  margin: 24px 0 8px;
+  font-size: 14px;
+  color: var(--hall);
+}
+
+.leivapuru a:hover {
+  color: var(--sinine);
+}
+
+main > h1 {
+  font-size: 32px;
+}
+
+/* Märkeruut koos tekstiga */
+.valik {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 0;
+  cursor: pointer;
+}
+
+.valik input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--sinine);
+}
+
+/* ---------- Toodete rippmenüü päises ---------- */
+.rippmenyy {
+  position: relative;
+}
+
+.rippmenyy-loend {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 20;
+  min-width: 220px;
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  background: var(--valge);
+  border: 1px solid var(--joon);
+  border-radius: var(--raadius-vaike);
+  box-shadow: var(--vari);
+}
+
+/* JS lisab klassi "avatud", kui nuppu vajutatakse */
+.rippmenyy.avatud .rippmenyy-loend {
+  display: block;
+}
+
+.rippmenyy-loend a {
+  display: block;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.rippmenyy-loend a:hover {
+  background: var(--sinine-hele);
+  color: var(--sinine);
+}
+
+/* Päise "Meist" link */
+.pais-link {
+  font-weight: 600;
+  color: var(--tume);
+  padding: 10px 6px;
+}
+
+.pais-link:hover,
+.pais-link.aktiivne {
+  color: var(--sinine);
+}
+
+/* Mobiilis on päises vähe ruumi: "Tooted" nupul jääb ainult ☰ ikoon,
+   et logo, menüü, "Meist" ja korv mahuksid ühele reale */
+@media (max-width: 760px) {
+  .pais-sisu {
+    gap: 10px;
+  }
+
+  .logo {
+    margin-right: auto;
+    font-size: 19px;
+  }
+
+  .logo img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .pais-link {
+    padding: 10px 2px;
+  }
+
+  .rippmenyy-tekst {
+    display: none;
+  }
+
+  .rippmenyy .nupp {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .korvi-link {
+    margin-left: 0;
+    padding: 10px;
+  }
+}

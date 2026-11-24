@@ -1,0 +1,153 @@
+/* ==========================================================
+   kataloog.css — AINULT kataloogi (kataloog.html) stiilid
+   Branch: feature/kataloog
+   ========================================================== */
+
+/* Vasakul filtrid, paremal tooted */
+.kataloog {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* ---------- Filtrid ---------- */
+.filtrid {
+  background: var(--valge);
+  border: 1px solid var(--joon);
+  border-radius: var(--raadius);
+  padding: 20px;
+  position: sticky;
+  top: 90px;
+}
+
+.filtrid fieldset {
+  border: 0;
+  border-bottom: 1px solid var(--joon);
+  padding: 0 0 16px;
+  margin: 0 0 16px;
+}
+
+.filtrid legend {
+  font-weight: 700;
+  color: var(--tume);
+  margin-bottom: 10px;
+}
+
+.valik small {
+  margin-left: auto;
+  color: var(--hall);
+  background: var(--taust);
+  border-radius: 6px;
+  padding: 0 7px;
+}
+
+.filtrid input[type="range"] {
+  width: 100%;
+  accent-color: var(--sinine);
+}
+
+.filtrid output {
+  color: var(--sinine);
+}
+
+.filtrid .nupp {
+  width: 100%;
+}
+
+/* ---------- Tööriba (arv, otsing, sorteerimine) ---------- */
+.tooriba {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.tooriba p {
+  margin: 0;
+  font-weight: 600;
+  color: var(--tume);
+}
+
+.tooriba-paremal {
+  display: flex;
+  gap: 8px;
+}
+
+.tooriba input,
+.tooriba select {
+  border: 1px solid var(--joon);
+  border-radius: 10px;
+  padding: 9px 12px;
+  font: inherit;
+  background: var(--valge);
+}
+
+/* Aktiivsete filtrite "kiibid" */
+.aktiivsed-filtrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.kiip {
+  border: 0;
+  background: var(--sinine-hele);
+  color: var(--sinine);
+  border-radius: 20px;
+  padding: 5px 12px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.kiip:hover {
+  background: var(--sinine);
+  color: var(--valge);
+}
+
+/* Tooteid ilmub sujuvalt */
+#kataloogi-tooted .toode {
+  animation: ilmu 0.3s ease both;
+}
+
+@keyframes ilmu {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+.tyhi {
+  text-align: center;
+  background: var(--valge);
+  border: 1px dashed var(--joon);
+  border-radius: var(--raadius);
+  padding: 48px 20px;
+}
+
+.tyhi p {
+  font-size: 18px;
+}
+
+/* ---------- Mobiil ---------- */
+@media (max-width: 860px) {
+  .kataloog {
+    grid-template-columns: 1fr;
+  }
+
+  .filtrid {
+    position: static;
+  }
+
+  .tooriba-paremal {
+    width: 100%;
+  }
+
+  .tooriba input {
+    flex: 1;
+    min-width: 0;
+  }
+}

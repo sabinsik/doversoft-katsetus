@@ -1,0 +1,345 @@
+/* ==========================================================
+   ostukorv.css — AINULT ostukorvi (ostukorv.html) stiilid
+   Branch: feature/ostukorv
+   ========================================================== */
+
+.kaart {
+  background: var(--valge);
+  border: 1px solid var(--joon);
+  border-radius: var(--raadius);
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.kaart h2 {
+  font-size: 19px;
+}
+
+/* ---------- Edenemise sammud ---------- */
+.edenemine {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  padding: 0;
+  margin: 0 0 24px;
+  counter-reset: samm;
+}
+
+.edenemine li {
+  flex: 1;
+  counter-increment: samm;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--valge);
+  border: 1px solid var(--joon);
+  color: var(--hall);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.edenemine li::before {
+  content: counter(samm) ". ";
+}
+
+.edenemine li.tehtud {
+  background: var(--sinine);
+  border-color: var(--sinine);
+  color: var(--valge);
+}
+
+/* ---------- Paigutus: vasakul korv + vorm, paremal kokkuvõte ---------- */
+.korv-paigutus {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 16px;
+  align-items: start;
+}
+
+/* ---------- Korvi read ---------- */
+.korvi-rida {
+  display: grid;
+  grid-template-columns: 72px 1fr auto auto auto;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--joon);
+}
+
+.korvi-rida:last-child {
+  border-bottom: 0;
+}
+
+.korvi-rida img {
+  width: 72px;
+  height: 72px;
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--taust);
+}
+
+.korvi-rida h3 {
+  font-size: 15px;
+  margin: 0 0 2px;
+}
+
+.korvi-rida small {
+  color: var(--hall);
+}
+
+.kogus {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--joon);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.kogus button {
+  width: 34px;
+  height: 34px;
+  border: 0;
+  background: var(--taust);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.kogus button:hover {
+  background: var(--sinine-hele);
+  color: var(--sinine);
+}
+
+.kogus span {
+  min-width: 36px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.rea-summa {
+  font-weight: 800;
+  color: var(--tume);
+  min-width: 80px;
+  text-align: right;
+}
+
+.eemalda {
+  border: 0;
+  background: none;
+  color: var(--hall);
+  font-size: 18px;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+}
+
+.eemalda:hover {
+  color: var(--punane);
+  background: #fdecec;
+}
+
+.tyhi-korv {
+  text-align: center;
+  padding: 24px 0;
+}
+
+.tyhi-korv img {
+  width: 90px;
+  margin: 0 auto 12px;
+}
+
+/* ---------- Tarnevalikud ---------- */
+.valikud {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tarne-valik {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  border: 2px solid var(--joon);
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.tarne-valik:has(input:checked) {
+  border-color: var(--sinine);
+  background: var(--sinine-hele);
+}
+
+.tarne-valik input {
+  accent-color: var(--sinine);
+  margin-top: 3px;
+}
+
+.tarne-valik small {
+  display: block;
+  color: var(--hall);
+}
+
+/* ---------- Vormi väljad ---------- */
+.valjad {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 16px;
+  margin-bottom: 12px;
+}
+
+.vali label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: var(--tume);
+}
+
+.vali input {
+  width: 100%;
+  border: 1px solid var(--joon);
+  border-radius: 10px;
+  padding: 11px 12px;
+  font: inherit;
+}
+
+.vali input:focus {
+  outline: 2px solid var(--sinine-hele);
+  border-color: var(--sinine);
+}
+
+.vali.vigane input {
+  border-color: var(--punane);
+}
+
+.vea-tekst {
+  color: var(--punane);
+  font-size: 13px;
+  min-height: 18px;
+  display: block;
+}
+
+/* ---------- Kokkuvõte ---------- */
+.kokkuvote {
+  position: sticky;
+  top: 90px;
+}
+
+.kokkuvote dl {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  margin: 0 0 16px;
+}
+
+.kokkuvote dd {
+  margin: 0;
+  text-align: right;
+  font-weight: 600;
+}
+
+.kokkuvote .kokku {
+  border-top: 1px solid var(--joon);
+  padding-top: 12px;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--tume);
+}
+
+.tasuta-tarne {
+  font-size: 13px;
+  color: var(--hall);
+  margin: 0 0 6px;
+}
+
+.tasuta-riba {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--taust);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.tasuta-riba span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--roheline);
+  transition: width 0.4s;
+}
+
+.telli-nupp {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+}
+
+.telli-nupp:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.turvaline {
+  text-align: center;
+  font-size: 13px;
+  color: var(--hall);
+  margin-bottom: 0;
+}
+
+/* ---------- Kinnitus ---------- */
+.kinnitus {
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.kinnitus-ikoon {
+  display: inline-grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #dcfce7;
+  color: var(--roheline);
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  animation: hyppa 0.5s ease;
+}
+
+@keyframes hyppa {
+  0% { transform: scale(0); }
+  70% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* ---------- Mobiil ---------- */
+@media (max-width: 860px) {
+  .korv-paigutus,
+  .valikud,
+  .valjad {
+    grid-template-columns: 1fr;
+  }
+
+  .kokkuvote {
+    position: static;
+  }
+
+  .korvi-rida {
+    grid-template-columns: 56px 1fr auto;
+  }
+
+  .korvi-rida img {
+    width: 56px;
+    height: 56px;
+  }
+
+  .rea-summa {
+    grid-column: 2;
+    text-align: left;
+  }
+
+  .edenemine li {
+    font-size: 12px;
+    padding: 8px;
+  }
+}

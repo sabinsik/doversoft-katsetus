@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Doversoft — kontori- ja koolitarbed</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+  <link rel="stylesheet" href="css/yhine.css">
+  <link rel="stylesheet" href="css/pealeht.css">
+</head>
+<body>
+
+  <!-- Ülemine riba -->
+  <div class="ylariba">
+    <div class="konteiner">
+      <span>🚚 Tasuta tarne alates 50 €</span>
+      <span class="peida-mobiilis">📄 Ettevõtetele arvega</span>
+      <span>☎ +372 5805 6960</span>
+    </div>
+  </div>
+
+  <!-- Päis: logo, otsing, ostukorv -->
+  <header class="pais">
+    <div class="konteiner pais-sisu">
+      <a href="index.html" class="logo"><img src="img/logo.svg" alt="Doversofti logo"><span>dover<b>soft</b></span></a>
+      <div class="rippmenyy">
+        <button type="button" class="nupp nupp-tume" id="rippmenyy-nupp" aria-expanded="false" aria-controls="rippmenyy-loend" aria-label="Tooted">☰ <span class="rippmenyy-tekst">Tooted</span></button>
+        <ul class="rippmenyy-loend" id="rippmenyy-loend">
+          <li><a href="kataloog.html">Kõik tooted</a></li>
+          <li><a href="kataloog.html?kat=kirjutus">✏️ Kirjutamine</a></li>
+          <li><a href="kataloog.html?kat=paber">📦 Paber</a></li>
+          <li><a href="kataloog.html?kat=arhiiv">📁 Arhiveerimine</a></li>
+          <li><a href="kataloog.html?kat=kontor">✂️ Kontoritarbed</a></li>
+          <li><a href="kataloog.html?kat=kool">🎨 Kool ja hobi</a></li>
+          <li><a href="kataloog.html?kat=kohv">☕ Kohvipaus</a></li>
+          <li><a href="kataloog.html?kat=puhastus">🧴 Puhastus</a></li>
+          <li><a href="kataloog.html?soodus=1">% Soodustused</a></li>
+        </ul>
+      </div>
+      <form class="otsing" action="kataloog.html" method="get">
+        <label for="otsi" class="peidetud">Otsi tooteid</label>
+        <input type="search" id="otsi" name="otsi" placeholder="Otsi tooteid, brände või koodi…">
+        <button type="submit" class="nupp nupp-sinine">Otsi</button>
+      </form>
+      <a href="meist.html" class="pais-link">Meist</a>
+      <a href="ostukorv.html" class="korvi-link">🛒 Korv <span class="korvi-arv">0</span></a>
+    </div>
+  </header>
+
+  <!-- Kategooriate menüü -->
+  <nav class="menyy" aria-label="Kategooriad">
+    <ul class="konteiner">
+      <li><a href="kataloog.html?kat=kirjutus">✏️ Kirjutamine</a></li>
+      <li><a href="kataloog.html?kat=paber">📦 Paber</a></li>
+      <li><a href="kataloog.html?kat=arhiiv">📁 Arhiveerimine</a></li>
+      <li><a href="kataloog.html?kat=kontor">✂️ Kontoritarbed</a></li>
+      <li><a href="kataloog.html?kat=kool">🎨 Kool ja hobi</a></li>
+      <li><a href="kataloog.html?kat=kohv">☕ Kohvipaus</a></li>
+      <li><a href="kataloog.html?kat=puhastus">🧴 Puhastus</a></li>
+      <li><a href="kataloog.html?soodus=1">% Soodustused</a></li>
+    </ul>
+  </nav>
+
+  <main class="konteiner">
+
+    <!-- Slaider (vahetub JS-iga) -->
+    <section class="slaider" aria-label="Pakkumised">
+      <div class="slaid aktiivne">
+        <div class="slaid-tekst">
+          <span class="slaid-silt">Kontor korda</span>
+          <h1>Paber, kaustad ja kõik muu — homme laual.</h1>
+          <p>Koopiapaber, registraatorid ja kirjatarbed hulgihindadega. Ettevõtetele arvega.</p>
+          <div class="slaid-nupud">
+            <a href="kataloog.html" class="nupp nupp-kollane">Sirvi kataloogi →</a>
+            <a href="kataloog.html?soodus=1" class="nupp slaid-nupp-labipaistev">Vaata pakkumisi</a>
+          </div>
+        </div>
+        <div class="slaid-pildid">
+          <div class="kast kast-suur"><img src="img/paber.svg" alt="Koopiapaber"></div>
+          <div class="kast kast-1"><img src="img/kaust.svg" alt="Registraator"></div>
+          <div class="kast kast-2"><img src="img/pliiats.svg" alt="Pliiats"></div>
+          <div class="kast kast-3"><img src="img/markmed.svg" alt="Märkmepaber"></div>
+        </div>
+      </div>
+      <div class="slaid slaid-roheline">
+        <div class="slaid-tekst">
+          <span class="slaid-silt">Kool algab</span>
+          <h2>Kooliaasta stardipakett −20%</h2>
+          <p>Vihikud, pinalid, värvid ja kõik muu, mida koolilaps vajab — soodsalt.</p>
+          <div class="slaid-nupud">
+            <a href="kataloog.html?kat=kool" class="nupp nupp-kollane">Vaata kooli tooteid →</a>
+          </div>
+        </div>
+        <div class="slaid-pildid">
+          <div class="kast kast-suur"><img src="img/varvid.svg" alt="Vesivärvid"></div>
+          <div class="kast kast-1"><img src="img/kalkulaator.svg" alt="Kalkulaator"></div>
+          <div class="kast kast-2"><img src="img/kaarid.svg" alt="Käärid"></div>
+        </div>
+      </div>
+      <div class="slaid slaid-tume">
+        <div class="slaid-tekst">
+          <span class="slaid-silt">Kohvipaus</span>
+          <h2>Kontori köök alati varustatud</h2>
+          <p>Kohv, tee, vesi ja ühekordsed nõud — tellimus kord kuus ja unustad mure.</p>
+          <div class="slaid-nupud">
+            <a href="kataloog.html?kat=kohv" class="nupp nupp-kollane">Vaata kohvipausi →</a>
+          </div>
+        </div>
+        <div class="slaid-pildid">
+          <div class="kast kast-suur"><img src="img/kohv.svg" alt="Kohv"></div>
+          <div class="kast kast-1"><img src="img/puhastus.svg" alt="Puhastusvahend"></div>
+        </div>
+      </div>
+
+      <div class="slaider-punktid">
+        <button type="button" class="punkt aktiivne" aria-label="Slaid 1"></button>
+        <button type="button" class="punkt" aria-label="Slaid 2"></button>
+        <button type="button" class="punkt" aria-label="Slaid 3"></button>
+      </div>
+      <div class="slaider-nooled">
+        <button type="button" id="eelmine" aria-label="Eelmine slaid">‹</button>
+        <button type="button" id="jargmine" aria-label="Järgmine slaid">›</button>
+      </div>
+    </section>
+
+    <!-- Nädala pakkumine + kiirtellimus -->
+    <div class="kaks-veergu">
+      <section class="pakkumine">
+        <div class="pakkumine-pais">
+          <h2>⭐ Nädala pakkumine</h2>
+          <span class="silt silt-soodus">−20%</span>
+        </div>
+        <div class="pakkumine-sisu">
+          <img src="img/markmed.svg" alt="Tekstimarker Stabilo Boss">
+          <div>
+            <span class="toode-brand">Stabilo</span>
+            <h3>Tekstimarker Stabilo Boss Original kollane</h3>
+            <p><span class="hind">1,48 €</span><span class="vana-hind">1,85 €</span></p>
+            <p class="taimer-tekst">Pakkumine lõpeb:</p>
+            <div class="taimer" id="taimer">
+              <div><b id="paevad">0</b><small>p</small></div>
+              <div><b id="tunnid">0</b><small>h</small></div>
+              <div><b id="minutid">0</b><small>m</small></div>
+              <div><b id="sekundid">0</b><small>s</small></div>
+            </div>
+            <button type="button" class="nupp nupp-kollane" data-lisa="D1006">Lisa korvi</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="kiirtellimus">
+        <h2>Kiirtellimus koodiga</h2>
+        <p>Tead tootekoodi? Lisa otse korvi. (Proovi nt <b>D2001</b>)</p>
+        <form id="kiir-vorm">
+          <label for="kiir-kood" class="peidetud">Tootekood</label>
+          <input type="text" id="kiir-kood" placeholder="Tootekood" required>
+          <label for="kiir-kogus" class="peidetud">Kogus</label>
+          <input type="number" id="kiir-kogus" value="1" min="1" max="99">
+          <button type="submit" class="nupp nupp-kollane">Lisa</button>
+        </form>
+        <p id="kiir-vastus" class="kiir-vastus"></p>
+      </section>
+    </div>
+
+    <!-- Eelised -->
+    <section class="eelised">
+      <div><span>🚚</span><h3>Kiire tarne</h3><p>1–2 tööpäevaga üle Eesti</p></div>
+      <div><span>🧾</span><h3>Arvega maksmine</h3><p>Ettevõtetele 14 päeva maksetähtaeg</p></div>
+      <div><span>🏷️</span><h3>Tuntud brändid</h3><p>Pilot, Leitz, Stabilo, Fiskars…</p></div>
+      <div><span>💬</span><h3>Isiklik abi</h3><p>Helista või kirjuta — vastame kiiresti</p></div>
+    </section>
+
+    <!-- Populaarsed tooted: JS täidab -->
+    <section class="sektsioon">
+      <div class="sektsiooni-pais">
+        <h2>Populaarsed tooted</h2>
+        <a href="kataloog.html">Vaata kõiki →</a>
+      </div>
+      <div class="tooted-grid" id="populaarsed"></div>
+    </section>
+
+    <!-- Kategooriad: JS täidab -->
+    <section class="sektsioon">
+      <div class="sektsiooni-pais">
+        <h2>Sirvi kategooriaid</h2>
+      </div>
+      <div class="kategooriad" id="kategooriad"></div>
+    </section>
+
+    <!-- Kuidas tellida -->
+    <section class="sektsioon">
+      <div class="sektsiooni-pais">
+        <h2>Kuidas tellida</h2>
+      </div>
+      <ol class="sammud">
+        <li><h3>Vali tooted</h3><p>Sirvi kataloogi, kasuta otsingut või kiirtellimust koodiga.</p></li>
+        <li><h3>Vormista tellimus</h3><p>Maksa pangalingi, kaardiga või ettevõttena arvega.</p></li>
+        <li><h3>Saa kätte</h3><p>Kuller, pakiautomaat või tasuta järeletulek Tallinnas.</p></li>
+      </ol>
+    </section>
+
+    <!-- Uudiskiri -->
+    <section class="uudiskiri">
+      <div>
+        <h2>Saa pakkumised esimesena</h2>
+        <p>Liitu uudiskirjaga — kord kuus parimad hinnad ja uued tooted.</p>
+      </div>
+      <form id="uudiskirja-vorm">
+        <label for="uudiskiri-email" class="peidetud">E-post</label>
+        <input type="email" id="uudiskiri-email" placeholder="sinu@email.ee" required>
+        <button type="submit" class="nupp nupp-kollane">Liitu</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Jalus -->
+  <footer class="jalus">
+    <div class="konteiner">
+      <div class="jalus-grid">
+        <div>
+          <a href="index.html" class="logo"><img src="img/logo.svg" alt="Doversofti logo"><span>dover<b>soft</b></span></a>
+          <p>Kontori- ja koolitarbed ettevõtetele ja kodudele üle Eesti.</p>
+        </div>
+        <div>
+          <h4>Pood</h4>
+          <ul>
+            <li><a href="kataloog.html">Kataloog</a></li>
+            <li><a href="kataloog.html?soodus=1">Soodustused</a></li>
+            <li><a href="ostukorv.html">Ostukorv</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Info</h4>
+          <ul>
+            <li><a href="ostukorv.html#tarne">Tarne ja maksmine</a></li>
+            <li><a href="index.html#kiir-vorm">Kiirtellimus</a></li>
+            <li><a href="meist.html">Meist</a></li>
+            <li><a href="meist.html#tingimused">Ostutingimused</a></li>
+            <li><a href="meist.html#kontakt">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontakt</h4>
+          <ul>
+            <li>+372 5805 6960</li>
+            <li>info@doversoft.ee</li>
+            <li>Tallinn, Eesti</li>
+          </ul>
+        </div>
+      </div>
+      <p class="jalus-alumine">© 2026 Doversoft · Tartu Ülikooli rühmatöö (LTAT.03.002)</p>
+    </div>
+  </footer>
+
+  <script src="js/tooted.js"></script>
+  <script src="js/yhine.js"></script>
+  <script src="js/pealeht.js"></script>
+</body>
+</html>

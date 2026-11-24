@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ostukorv — Doversoft</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+  <link rel="stylesheet" href="css/yhine.css">
+  <link rel="stylesheet" href="css/ostukorv.css">
+</head>
+<body>
+
+  <!-- Ülemine riba -->
+  <div class="ylariba">
+    <div class="konteiner">
+      <span>🚚 Tasuta tarne alates 50 €</span>
+      <span class="peida-mobiilis">📄 Ettevõtetele arvega</span>
+      <span>☎ +372 5805 6960</span>
+    </div>
+  </div>
+
+  <!-- Päis: logo, otsing, ostukorv -->
+  <header class="pais">
+    <div class="konteiner pais-sisu">
+      <a href="index.html" class="logo"><img src="img/logo.svg" alt="Doversofti logo"><span>dover<b>soft</b></span></a>
+      <div class="rippmenyy">
+        <button type="button" class="nupp nupp-tume" id="rippmenyy-nupp" aria-expanded="false" aria-controls="rippmenyy-loend" aria-label="Tooted">☰ <span class="rippmenyy-tekst">Tooted</span></button>
+        <ul class="rippmenyy-loend" id="rippmenyy-loend">
+          <li><a href="kataloog.html">Kõik tooted</a></li>
+          <li><a href="kataloog.html?kat=kirjutus">✏️ Kirjutamine</a></li>
+          <li><a href="kataloog.html?kat=paber">📦 Paber</a></li>
+          <li><a href="kataloog.html?kat=arhiiv">📁 Arhiveerimine</a></li>
+          <li><a href="kataloog.html?kat=kontor">✂️ Kontoritarbed</a></li>
+          <li><a href="kataloog.html?kat=kool">🎨 Kool ja hobi</a></li>
+          <li><a href="kataloog.html?kat=kohv">☕ Kohvipaus</a></li>
+          <li><a href="kataloog.html?kat=puhastus">🧴 Puhastus</a></li>
+          <li><a href="kataloog.html?soodus=1">% Soodustused</a></li>
+        </ul>
+      </div>
+      <form class="otsing" action="kataloog.html" method="get">
+        <label for="otsi" class="peidetud">Otsi tooteid</label>
+        <input type="search" id="otsi" name="otsi" placeholder="Otsi tooteid, brände või koodi…">
+        <button type="submit" class="nupp nupp-sinine">Otsi</button>
+      </form>
+      <a href="meist.html" class="pais-link">Meist</a>
+      <a href="ostukorv.html" class="korvi-link">🛒 Korv <span class="korvi-arv">0</span></a>
+    </div>
+  </header>
+
+  <!-- Kategooriate menüü -->
+  <nav class="menyy" aria-label="Kategooriad">
+    <ul class="konteiner">
+      <li><a href="kataloog.html?kat=kirjutus">✏️ Kirjutamine</a></li>
+      <li><a href="kataloog.html?kat=paber">📦 Paber</a></li>
+      <li><a href="kataloog.html?kat=arhiiv">📁 Arhiveerimine</a></li>
+      <li><a href="kataloog.html?kat=kontor">✂️ Kontoritarbed</a></li>
+      <li><a href="kataloog.html?kat=kool">🎨 Kool ja hobi</a></li>
+      <li><a href="kataloog.html?kat=kohv">☕ Kohvipaus</a></li>
+      <li><a href="kataloog.html?kat=puhastus">🧴 Puhastus</a></li>
+      <li><a href="kataloog.html?soodus=1">% Soodustused</a></li>
+    </ul>
+  </nav>
+
+  <main class="konteiner">
+    <p class="leivapuru"><a href="index.html">Avaleht</a> / Ostukorv</p>
+    <h1>Ostukorv</h1>
+
+    <!-- Sammud -->
+    <ol class="edenemine">
+      <li class="tehtud">Ostukorv</li>
+      <li id="samm-tarne">Tarne ja andmed</li>
+      <li id="samm-valmis">Kinnitus</li>
+    </ol>
+
+    <div class="korv-paigutus" id="korv-paigutus">
+      <div class="korv-vasak">
+        <!-- Korvi read: JS täidab -->
+        <section class="kaart" aria-label="Tooted korvis">
+          <div id="korvi-read"></div>
+          <div class="tyhi-korv" id="tyhi-korv" hidden>
+            <img src="img/kaust.svg" alt="">
+            <h2>Sinu korv on tühi</h2>
+            <p>Lisa tooteid kataloogist või kasuta pealehel kiirtellimust.</p>
+            <a href="kataloog.html" class="nupp nupp-sinine">Mine kataloogi</a>
+          </div>
+        </section>
+
+        <!-- Tellimuse vorm -->
+        <section class="kaart" id="tarne">
+          <h2>Tarne ja kontaktandmed</h2>
+          <form id="tellimuse-vorm" novalidate>
+            <div class="valikud">
+              <label class="tarne-valik">
+                <input type="radio" name="tarne" value="0" checked>
+                <span><b>Järeletulek Tallinnas</b><small>Tasuta · 1 tööpäev</small></span>
+              </label>
+              <label class="tarne-valik">
+                <input type="radio" name="tarne" value="2.99">
+                <span><b>Pakiautomaat</b><small>2,99 € · 1–2 tööpäeva</small></span>
+              </label>
+              <label class="tarne-valik">
+                <input type="radio" name="tarne" value="5.99">
+                <span><b>Kuller</b><small>5,99 € · järgmine tööpäev</small></span>
+              </label>
+            </div>
+
+            <div class="valjad">
+              <div class="vali">
+                <label for="nimi">Nimi</label>
+                <input type="text" id="nimi" name="nimi" autocomplete="name" required>
+                <small class="vea-tekst"></small>
+              </div>
+              <div class="vali">
+                <label for="email">E-post</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+                <small class="vea-tekst"></small>
+              </div>
+              <div class="vali">
+                <label for="telefon">Telefon</label>
+                <input type="tel" id="telefon" name="telefon" autocomplete="tel" placeholder="+372 …" required>
+                <small class="vea-tekst"></small>
+              </div>
+              <div class="vali">
+                <label for="ettevote">Ettevõte (valikuline)</label>
+                <input type="text" id="ettevote" name="ettevote" autocomplete="organization">
+                <small class="vea-tekst"></small>
+              </div>
+            </div>
+
+            <label class="valik"><input type="checkbox" id="arvega"> Soovin maksta arvega (ettevõttele, 14 päeva)</label>
+          </form>
+        </section>
+      </div>
+
+      <!-- Kokkuvõte -->
+      <aside class="kaart kokkuvote">
+        <h2>Kokkuvõte</h2>
+        <dl>
+          <dt>Tooted (<span id="kv-arv">0</span> tk)</dt><dd id="kv-tooted">0,00 €</dd>
+          <dt>sh KM 24%</dt><dd id="kv-km">0,00 €</dd>
+          <dt>Tarne</dt><dd id="kv-tarne">Tasuta</dd>
+          <dt class="kokku">Kokku</dt><dd class="kokku" id="kv-kokku">0,00 €</dd>
+        </dl>
+        <p class="tasuta-tarne" id="tasuta-tarne"></p>
+        <div class="tasuta-riba"><span id="tasuta-riba"></span></div>
+        <button type="submit" form="tellimuse-vorm" class="nupp nupp-kollane telli-nupp" id="telli-nupp">Esita tellimus</button>
+        <p class="turvaline">🔒 Turvaline makse · Tagastus 14 päeva</p>
+      </aside>
+    </div>
+
+    <!-- Kinnitus: JS näitab pärast tellimist -->
+    <section class="kaart kinnitus" id="kinnitus" hidden>
+      <span class="kinnitus-ikoon">✓</span>
+      <h2>Aitäh, tellimus on vastu võetud!</h2>
+      <p>Tellimuse number <b id="tellimuse-nr"></b>. Saatsime kinnituse aadressile <b id="kinnitus-email"></b>.</p>
+      <a href="index.html" class="nupp nupp-sinine">Tagasi avalehele</a>
+    </section>
+  </main>
+
+  <!-- Jalus -->
+  <footer class="jalus">
+    <div class="konteiner">
+      <div class="jalus-grid">
+        <div>
+          <a href="index.html" class="logo"><img src="img/logo.svg" alt="Doversofti logo"><span>dover<b>soft</b></span></a>
+          <p>Kontori- ja koolitarbed ettevõtetele ja kodudele üle Eesti.</p>
+        </div>
+        <div>
+          <h4>Pood</h4>
+          <ul>
+            <li><a href="kataloog.html">Kataloog</a></li>
+            <li><a href="kataloog.html?soodus=1">Soodustused</a></li>
+            <li><a href="ostukorv.html">Ostukorv</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Info</h4>
+          <ul>
+            <li><a href="ostukorv.html#tarne">Tarne ja maksmine</a></li>
+            <li><a href="index.html#kiir-vorm">Kiirtellimus</a></li>
+            <li><a href="meist.html">Meist</a></li>
+            <li><a href="meist.html#tingimused">Ostutingimused</a></li>
+            <li><a href="meist.html#kontakt">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontakt</h4>
+          <ul>
+            <li>+372 5805 6960</li>
+            <li>info@doversoft.ee</li>
+            <li>Tallinn, Eesti</li>
+          </ul>
+        </div>
+      </div>
+      <p class="jalus-alumine">© 2026 Doversoft · Tartu Ülikooli rühmatöö (LTAT.03.002)</p>
+    </div>
+  </footer>
+
+  <script src="js/tooted.js"></script>
+  <script src="js/yhine.js"></script>
+  <script src="js/ostukorv.js"></script>
+</body>
+</html>
