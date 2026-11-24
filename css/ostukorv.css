@@ -343,3 +343,9 @@
     padding: 8px;
   }
 }
+
+/* Korvi vasak veerg tohib telefonis kitseneda */
+.korv-vasak,
+.korv-vasak .kaart {
+  min-width: 0;
+}

@@ -19,6 +19,9 @@
   padding: 20px;
   position: sticky;
   top: 90px;
+  /* Kategooriaid on palju: filtrite kast keritakse eraldi */
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
 }
 
 .filtrid fieldset {
@@ -140,6 +143,7 @@
 
   .filtrid {
     position: static;
+    max-height: 360px;
   }
 
   .tooriba-paremal {
@@ -150,4 +154,54 @@
     flex: 1;
     min-width: 0;
   }
+}
+
+/* ---------- Kategooriate puu ---------- */
+.kat-grupp {
+  margin-bottom: 8px;
+}
+
+.valik.pea {
+  font-weight: 700;
+  color: var(--tume);
+}
+
+.valik.alam {
+  padding-left: 26px;
+  font-size: 14px;
+}
+
+/* Kaubamärgi valik */
+.filtri-valik {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid var(--joon);
+  border-radius: 0;
+  background: var(--valge);
+  font: inherit;
+}
+
+/* "Näita rohkem" nupp toodete all */
+.rohkem {
+  text-align: center;
+  margin: 24px 0 8px;
+}
+
+/* Filtrid ja tooted tohivad kitseneda (pikad kaubamärgid valikus) */
+.kataloog > *,
+.filtri-valik {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* <fieldset> ei kitsene vaikimisi alla oma sisu laiuse — lubame seda */
+.filtrid fieldset {
+  min-width: 0;
+}
+
+/* Kolmanda taseme kategooriad (nt Markerid > Tekstimarkerid) */
+.valik.alam2 {
+  padding-left: 48px;
+  font-size: 13px;
+  color: var(--hall);
 }

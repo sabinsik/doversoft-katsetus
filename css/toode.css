@@ -1,0 +1,184 @@
+/* ==========================================================
+   toode.css — AINULT tootelehe (toode.html) stiilid
+   Branch: feature/toode
+   ========================================================== */
+
+/* Vasakul suur pilt, paremal info ja ostmine */
+.toote-leht {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  background: var(--valge);
+  border: 1px solid var(--joon);
+  padding: 32px;
+  margin-top: 16px;
+}
+
+.toote-pilt-suur {
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--joon);
+  background: var(--valge);
+}
+
+.toote-pilt-suur img {
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+}
+
+.toote-info h1 {
+  font-size: 28px;
+  line-height: 1.25;
+  margin: 6px 0 12px;
+}
+
+.toote-lyhi {
+  line-height: 1.7;
+}
+
+/* ---------- Variandid (värvid, suurused) ---------- */
+.toote-variandid {
+  border: 0;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.toote-variandid legend {
+  font-weight: 700;
+  color: var(--tume);
+  margin-bottom: 10px;
+}
+
+.variandi-nupud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.variandi-nupp input {
+  position: absolute;
+  opacity: 0;
+}
+
+.variandi-nupp span {
+  display: block;
+  padding: 8px 14px;
+  border: 1px solid var(--joon);
+  background: var(--valge);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.variandi-nupp span:hover {
+  border-color: var(--sinine);
+}
+
+/* Valitud variant on sinine */
+.variandi-nupp input:checked + span {
+  border-color: var(--sinine);
+  background: var(--sinine-hele);
+  color: var(--sinine);
+  font-weight: 700;
+}
+
+.variandi-nupp input:focus-visible + span {
+  outline: 2px solid var(--sinine);
+  outline-offset: 2px;
+}
+
+/* ---------- Hind ja ostmine ---------- */
+.toote-hind {
+  margin: 20px 0 12px;
+}
+
+.toote-hind .hind {
+  font-size: 30px;
+}
+
+.toote-hind small {
+  color: var(--hall);
+  margin-left: 6px;
+}
+
+.toote-osta {
+  display: flex;
+  gap: 10px;
+}
+
+.toote-osta input {
+  width: 80px;
+  padding: 10px;
+  border: 1px solid var(--joon);
+  font: inherit;
+}
+
+.toote-kood {
+  color: var(--hall);
+  font-size: 14px;
+  margin-top: 14px;
+}
+
+/* ---------- Kirjeldus ja tehnilised andmed ---------- */
+.toote-detailid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 32px;
+  background: var(--valge);
+  border: 1px solid var(--joon);
+  padding: 32px;
+}
+
+.toote-detailid h2 {
+  font-size: 20px;
+  margin-top: 0;
+}
+
+.toote-kirjeldus p {
+  line-height: 1.7;
+}
+
+.tunnused {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  margin: 0;
+}
+
+.tunnused dt,
+.tunnused dd {
+  padding: 9px 0;
+  border-bottom: 1px solid var(--joon);
+  margin: 0;
+}
+
+.tunnused dt {
+  color: var(--hall);
+  padding-right: 20px;
+}
+
+.tunnused dd {
+  font-weight: 600;
+  color: var(--tume);
+  word-break: break-word;
+}
+
+/* ---------- Mobiil ---------- */
+@media (max-width: 760px) {
+  .toote-leht,
+  .toote-detailid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .toote-info h1 {
+    font-size: 23px;
+  }
+}
+
+/* Kui tehnilisi andmeid pole, võtab kirjeldus kogu laiuse */
+.toote-detailid.ainult-kirjeldus {
+  grid-template-columns: 1fr;
+}

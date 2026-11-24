@@ -290,7 +290,8 @@ img {
 
 .toode-pilt {
   position: relative;
-  background: var(--taust);
+  background: var(--valge);
+  border: 1px solid var(--joon);
   border-radius: 0;
   aspect-ratio: 1 / 1;
   display: grid;
@@ -298,8 +299,11 @@ img {
   margin-bottom: 12px;
 }
 
+/* Päris tootepildid on erineva suurusega: mahutame need kasti, ilma venitamata */
 .toode-pilt img {
-  width: 60%;
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
 }
 
 .silt {
@@ -318,8 +322,10 @@ img {
   background: var(--punane);
 }
 
-.silt-uus {
-  background: var(--roheline);
+.silt-valikud {
+  left: auto;
+  right: 10px;
+  background: var(--tume);
 }
 
 .toode-brand {
@@ -337,14 +343,37 @@ img {
   flex: 1;
 }
 
-.toode-laos {
+.toode h3 a:hover {
+  color: var(--sinine);
+}
+
+.toode-kood {
   font-size: 13px;
-  color: var(--roheline);
+  color: var(--hall);
   margin: 0 0 10px;
+}
+
+/* Variandi (värv, suurus) valik tootekaardil */
+.variandi-valik {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 8px 10px;
+  border: 1px solid var(--joon);
+  border-radius: 0;
+  background: var(--valge);
+  font: inherit;
+  font-size: 14px;
+}
+
+.nupp:disabled {
+  background: var(--joon);
+  color: var(--hall);
+  cursor: not-allowed;
 }
 
 .toode-all {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: 8px;
@@ -456,7 +485,7 @@ img {
   }
 
   .tooted-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
 }
@@ -502,10 +531,10 @@ main > h1 {
   top: calc(100% + 8px);
   left: 0;
   z-index: 20;
-  min-width: 220px;
-  margin: 0;
-  padding: 8px;
-  list-style: none;
+  width: min(1080px, calc(100vw - 48px));
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  padding: 16px 20px 20px;
   background: var(--valge);
   border: 1px solid var(--joon);
   border-radius: 0;
@@ -517,17 +546,50 @@ main > h1 {
   display: block;
 }
 
+/* Neli veergu: iga peakategooria ja tema alamkategooriad */
+.ripp-veerud {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 0.8fr 2.2fr;
+  gap: 8px 24px;
+}
+
+.ripp-veerud ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Kontoris on palju alamkategooriaid: need lähevad kahte tulpa */
+.ripp-veerud > div:last-child ul {
+  columns: 2;
+  column-gap: 16px;
+}
+
 .rippmenyy-loend a {
   display: block;
-  padding: 9px 12px;
-  border-radius: 0;
+  padding: 6px 8px;
+  font-size: 14px;
   font-weight: 500;
-  white-space: nowrap;
 }
 
 .rippmenyy-loend a:hover {
   background: var(--sinine-hele);
   color: var(--sinine);
+}
+
+.rippmenyy-loend .ripp-pea {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--tume);
+  border-bottom: 2px solid var(--kollane);
+  margin-bottom: 6px;
+}
+
+.rippmenyy-loend .ripp-koik {
+  display: inline-block;
+  font-weight: 700;
+  color: var(--sinine);
+  margin-bottom: 10px;
 }
 
 /* Päise "Meist" link */
@@ -567,6 +629,25 @@ main > h1 {
     display: none;
   }
 
+  .rippmenyy {
+    position: static;
+  }
+
+  .rippmenyy-loend {
+    left: 16px;
+    right: 16px;
+    width: auto;
+    top: 100%;
+  }
+
+  .ripp-veerud {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ripp-veerud > div:last-child {
+    grid-column: 1 / -1;
+  }
+
   .rippmenyy .nupp {
     padding-left: 14px;
     padding-right: 14px;
@@ -576,4 +657,18 @@ main > h1 {
     margin-left: 0;
     padding: 10px;
   }
+}
+
+/* Grid'i veerud tohivad kitseneda: pikad tootenimed ja rippmenüüd
+   ei tohi lehte telefonis laiemaks lükata */
+.tooted-grid > *,
+.toode select {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Väga pikad sõnad tootenimedes (nt "15-210-15x12") murtakse reale */
+.toode h3,
+.korvi-rida h3 {
+  overflow-wrap: anywhere;
 }

@@ -29,8 +29,24 @@ punktid.forEach((punkt, i) => punkt.addEventListener("click", () => naitaSlaidi(
 // Slaid vahetub ise iga 6 sekundi järel
 setInterval(() => naitaSlaidi(praeguneSlaid + 1), 6000);
 
-/* ---------- 2) Nädala pakkumise taimer ---------- */
-// Pakkumine lõpeb järgmisel pühapäeval kell 23:59:59
+/* ---------- 2) Nädala toode ja taimer ---------- */
+// Nädala toode valitakse populaarsete toodete seast nädala numbri järgi,
+// nii et see vahetub iga esmaspäev ise.
+const nadalaValik = GRUPID.filter((g) => g.populaarne && grupiVariandid(g)[0].hind > 0);
+const nadalaNr = Math.floor(Date.now() / (7 * 24 * 60 * 60 * 1000));
+const nadalaToode = nadalaValik[nadalaNr % nadalaValik.length];
+if (nadalaToode) {
+  const esimene = grupiVariandid(nadalaToode)[0];
+  document.getElementById("nadala-link").href = "toode.html?id=" + nadalaToode.id;
+  document.getElementById("nadala-pilt").src = esimene.pilt;
+  document.getElementById("nadala-pilt").alt = nadalaToode.nimi;
+  document.getElementById("nadala-brand").textContent = nadalaToode.brand;
+  document.getElementById("nadala-nimi").textContent = nadalaToode.nimi;
+  document.getElementById("nadala-hind").textContent = hinnaTekst(esimene.hind);
+  document.getElementById("nadala-nupp").dataset.lisa = esimene.kood;
+}
+
+// Taimer loeb aega järgmise pühapäeva 23:59:59-ni
 function nadalaLopp() {
   const lopp = new Date();
   const paevi = (7 - lopp.getDay()) % 7; // getDay(): 0 = pühapäev
@@ -74,20 +90,22 @@ document.getElementById("kiir-vorm").addEventListener("submit", (sundmus) => {
 });
 
 /* ---------- 4) Populaarsed tooted ja kategooriad ---------- */
-// Võtame tooted, millel on silt "top", ja näitame esimest 8
-const populaarsed = TOOTED.filter((t) => t.silt === "top").slice(0, 8);
+// Populaarsed on need tooted, mis on ka doversoft.ee avalehel esile tõstetud
+const populaarsed = GRUPID.filter((g) => g.populaarne).slice(0, 8);
 document.getElementById("populaarsed").innerHTML = populaarsed.map(tooteKaart).join("");
 
-// Iga kategooria kohta kaart koos toodete arvuga
-document.getElementById("kategooriad").innerHTML = KATEGOORIAD.map((kat) => {
-  const arv = TOOTED.filter((t) => t.kat === kat.id).length;
-  return `
+// Iga peakategooria kohta kaart koos toodete arvuga (arvestame ka alamkategooriaid)
+function kategooriasTooteid(katId) {
+  const alamad = KATEGOORIAD.filter((k) => k.vanem === katId).map((k) => k.id);
+  return GRUPID.filter((g) => g.kat === katId).length + alamad.reduce((summa, id) => summa + kategooriasTooteid(id), 0);
+}
+
+document.getElementById("kategooriad").innerHTML = KATEGOORIAD.filter((k) => k.tase === 1).map((kat) => `
     <a class="kategooria" href="kataloog.html?kat=${kat.id}">
-      <img src="${kat.pilt}" alt="">
-      <h3>${kat.nimi}</h3>
-      <p>${arv} toodet</p>
-    </a>`;
-}).join("");
+      <img src="${KATEGOORIA_PILT[kat.id]}" alt="">
+      <h3>${ohutu(kat.nimi)}</h3>
+      <p>${kategooriasTooteid(kat.id)} toodet</p>
+    </a>`).join("");
 
 /* ---------- 5) Uudiskiri ---------- */
 document.getElementById("uudiskirja-vorm").addEventListener("submit", (sundmus) => {

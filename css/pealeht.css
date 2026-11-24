@@ -219,9 +219,13 @@
 }
 
 .pakkumine-sisu img {
-  background: var(--taust);
-  border-radius: 0;
-  padding: 16px;
+  display: block;
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  background: var(--valge);
+  border: 1px solid var(--joon);
+  padding: 8px;
 }
 
 .pakkumine h3 {
@@ -498,4 +502,9 @@
   .pakkumine-sisu img {
     width: 120px;
   }
+}
+
+/* Pikk tootenimi "Nädala toote" kastis ei tohi lehte laiemaks lükata */
+.kaks-veergu > * {
+  min-width: 0;
 }

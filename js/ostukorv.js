@@ -28,10 +28,10 @@ function naitaKorvi() {
     const kogus = korv[kood];
     return `
       <div class="korvi-rida">
-        <img src="${toode.pilt}" alt="${toode.nimi}">
+        <img src="${toode.pilt}" alt="${ohutu(toode.nimi)}">
         <div>
-          <h3>${toode.nimi}</h3>
-          <small>${toode.brand} · ${toode.kood} · ${hind(toode.hind)} / tk</small>
+          <h3><a href="toode.html?id=${toode.grupp}&amp;v=${toode.kood}">${ohutu(toode.nimi)}</a></h3>
+          <small>${[toode.brand, toode.kood, hind(toode.hind) + " / tk"].filter(Boolean).map(ohutu).join(" · ")}</small>
         </div>
         <div class="kogus">
           <button type="button" data-muuda="-1" data-kood="${kood}" aria-label="Vähenda kogust">−</button>

@@ -9,7 +9,7 @@
    ========================================================== */
 
 // Võti, mille all ostukorvi brauserisse salvestame
-const KORVI_VOTI = "doversoft-korv";
+const KORVI_VOTI = "doversoft-korv-v2"; // v2: päris tooted, vana demokorv ei segaks
 
 // Loeb ostukorvi brauseri mälust. Korv on objekt kujul { "D1001": 2, "D2003": 1 }
 function loeKorv() {
@@ -62,25 +62,73 @@ function hind(summa) {
   return summa.toLocaleString("et-EE", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €";
 }
 
-// Koostab ühe tootekaardi HTML-i (kasutavad pealeht ja kataloog)
-function tooteKaart(toode) {
-  const sildid = { top: "Populaarne", soodus: "Soodus", uus: "Uus" };
-  const vana = toode.vanaHind ? `<span class="vana-hind">${hind(toode.vanaHind)}</span>` : "";
+// Teeb teksti HTML-i jaoks ohutuks (tootenimedes võib olla märke nagu " või <)
+function ohutu(tekst) {
+  return String(tekst).replace(/[&<>"']/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[m]);
+}
+
+// Leiab tootegrupi (ühe kaardi) id järgi, nt "G526"
+function leiaGrupp(id) {
+  return GRUPID.find((g) => g.id === id);
+}
+
+// Tagastab grupi kõik variandid (värvid, suurused) koos hindadega
+function grupiVariandid(grupp) {
+  return grupp.variandid.map(leiaToode).filter(Boolean);
+}
+
+// Hind tekstina; kui poes hinda pole, kirjutame "Hind päringul"
+function hinnaTekst(summa) {
+  return summa > 0 ? hind(summa) : "Hind päringul";
+}
+
+// Koostab ühe tootekaardi HTML-i (kasutavad pealeht, kataloog ja tootelehe "sarnased tooted").
+// Kui tootel on mitu varianti, tuleb kaardile rippmenüü, kust valida värv või suurus.
+function tooteKaart(grupp) {
+  const variandid = grupiVariandid(grupp);
+  const esimene = variandid[0];
+  const link = "toode.html?id=" + grupp.id;
+  let valik = "";
+  if (variandid.length > 1) {
+    const valikud = variandid
+      .map((v) => `<option value="${v.kood}">${ohutu(v.variant)} — ${hinnaTekst(v.hind)}</option>`)
+      .join("");
+    valik = `
+      <label class="peidetud" for="valik-${grupp.id}">Vali variant</label>
+      <select class="variandi-valik" id="valik-${grupp.id}">${valikud}</select>`;
+  }
+  const silt = grupp.populaarne ? `<span class="silt">Populaarne</span>` : "";
+  const arv = variandid.length > 1 ? `<span class="silt silt-valikud">${variandid.length} valikut</span>` : "";
   return `
-    <article class="toode">
-      <div class="toode-pilt">
-        <span class="silt silt-${toode.silt}">${sildid[toode.silt]}</span>
-        <img src="${toode.pilt}" alt="${toode.nimi}">
-      </div>
-      <span class="toode-brand">${toode.brand}</span>
-      <h3>${toode.nimi}</h3>
-      <p class="toode-laos">Laos: ${toode.laos} tk · kood ${toode.kood}</p>
+    <article class="toode" data-grupp="${grupp.id}">
+      <a href="${link}" class="toode-pilt">
+        ${silt}${arv}
+        <img src="${esimene.pilt}" alt="${ohutu(grupp.nimi)}" loading="lazy">
+      </a>
+      <span class="toode-brand">${ohutu(grupp.brand || "\u00a0")}</span>
+      <h3><a href="${link}">${ohutu(grupp.nimi)}</a></h3>
+      ${valik}
+      <p class="toode-kood">Kood <span class="kaardi-kood">${esimene.kood}</span></p>
       <div class="toode-all">
-        <div><span class="hind">${hind(toode.hind)}</span>${vana}</div>
-        <button type="button" class="nupp nupp-sinine" data-lisa="${toode.kood}">Lisa korvi</button>
+        <span class="hind kaardi-hind">${hinnaTekst(esimene.hind)}</span>
+        <button type="button" class="nupp nupp-sinine" data-lisa="${esimene.kood}"${esimene.hind > 0 ? "" : " disabled"}>Lisa korvi</button>
       </div>
     </article>`;
 }
+
+// Kui kaardil valitakse teine variant, vahetame kaardil hinna, koodi, pildi ja korvi nupu
+document.addEventListener("change", (sundmus) => {
+  const valik = sundmus.target.closest(".variandi-valik");
+  if (!valik) return;
+  const kaart = valik.closest(".toode");
+  const toode = leiaToode(valik.value);
+  kaart.querySelector(".kaardi-hind").textContent = hinnaTekst(toode.hind);
+  kaart.querySelector(".kaardi-kood").textContent = toode.kood;
+  kaart.querySelector(".toode-pilt img").src = toode.pilt;
+  const nupp = kaart.querySelector("[data-lisa]");
+  nupp.dataset.lisa = toode.kood;
+  nupp.disabled = !(toode.hind > 0);
+});
 
 // Näitab ekraani allservas lühikest teadet 2,5 sekundiks
 function naitaTeadet(tekst) {
