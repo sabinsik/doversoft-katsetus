@@ -15,7 +15,7 @@
 .filtrid {
   background: var(--valge);
   border: 1px solid var(--joon);
-  border-radius: var(--raadius);
+  border-radius: 0;
   padding: 20px;
   position: sticky;
   top: 90px;
@@ -38,7 +38,7 @@
   margin-left: auto;
   color: var(--hall);
   background: var(--taust);
-  border-radius: 6px;
+  border-radius: 0;
   padding: 0 7px;
 }
 
@@ -79,7 +79,7 @@
 .tooriba input,
 .tooriba select {
   border: 1px solid var(--joon);
-  border-radius: 10px;
+  border-radius: 0;
   padding: 9px 12px;
   font: inherit;
   background: var(--valge);
@@ -97,7 +97,7 @@
   border: 0;
   background: var(--sinine-hele);
   color: var(--sinine);
-  border-radius: 20px;
+  border-radius: 0;
   padding: 5px 12px;
   font: inherit;
   font-size: 13px;
@@ -124,7 +124,7 @@
   text-align: center;
   background: var(--valge);
   border: 1px dashed var(--joon);
-  border-radius: var(--raadius);
+  border-radius: 0;
   padding: 48px 20px;
 }
 

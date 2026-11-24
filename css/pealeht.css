@@ -7,7 +7,7 @@
 .slaider {
   position: relative;
   margin-top: 24px;
-  border-radius: 24px;
+  border-radius: 0;
   overflow: hidden;
   min-height: 380px;
 }
@@ -55,7 +55,7 @@
 .slaid-silt {
   display: inline-block;
   padding: 5px 12px;
-  border-radius: 8px;
+  border-radius: 0;
   background: rgba(255, 255, 255, 0.18);
   font-size: 12px;
   font-weight: 700;
@@ -86,7 +86,7 @@
 .kast {
   position: absolute;
   background: var(--valge);
-  border-radius: 22px;
+  border-radius: 0;
   box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.35);
   display: grid;
   place-items: center;
@@ -145,7 +145,7 @@
   width: 22px;
   height: 6px;
   border: 0;
-  border-radius: 3px;
+  border-radius: 0;
   background: rgba(255, 255, 255, 0.4);
   cursor: pointer;
   transition: width 0.3s;
@@ -167,7 +167,7 @@
 .slaider-nooled button {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 0;
   border: 1px solid rgba(255, 255, 255, 0.4);
   background: rgba(255, 255, 255, 0.15);
   color: var(--valge);
@@ -185,7 +185,7 @@
 
 .pakkumine,
 .kiirtellimus {
-  border-radius: 20px;
+  border-radius: 0;
   padding: 24px;
 }
 
@@ -220,7 +220,7 @@
 
 .pakkumine-sisu img {
   background: var(--taust);
-  border-radius: 16px;
+  border-radius: 0;
   padding: 16px;
 }
 
@@ -244,7 +244,7 @@
 .taimer div {
   background: var(--tume);
   color: var(--valge);
-  border-radius: 8px;
+  border-radius: 0;
   padding: 4px 8px;
   min-width: 44px;
   text-align: center;
@@ -278,7 +278,7 @@
 .kiirtellimus input {
   background: #1e293b;
   border: 1px solid #334155;
-  border-radius: 12px;
+  border-radius: 0;
   color: var(--valge);
   padding: 12px;
   font: inherit;
@@ -318,7 +318,7 @@
 .eelised div {
   background: var(--valge);
   border: 1px solid var(--joon);
-  border-radius: var(--raadius);
+  border-radius: 0;
   padding: 20px;
 }
 
@@ -347,7 +347,7 @@
 .kategooria {
   background: var(--valge);
   border: 1px solid var(--joon);
-  border-radius: var(--raadius);
+  border-radius: 0;
   padding: 20px;
   text-align: center;
   transition: border-color 0.2s, transform 0.2s;
@@ -387,7 +387,7 @@
 
 .sammud li {
   background: var(--valge);
-  border-radius: var(--raadius);
+  border-radius: 0;
   padding: 24px;
   border: 1px solid var(--joon);
   counter-increment: samm;
@@ -399,7 +399,7 @@
   place-items: center;
   width: 40px;
   height: 40px;
-  border-radius: 12px;
+  border-radius: 0;
   background: var(--sinine-hele);
   color: var(--sinine);
   font-weight: 800;
@@ -423,7 +423,7 @@
   gap: 24px;
   background: linear-gradient(120deg, var(--sinine-tume), var(--sinine));
   color: var(--valge);
-  border-radius: 24px;
+  border-radius: 0;
   padding: 36px 40px;
 }
 
@@ -443,7 +443,7 @@
 
 .uudiskiri input {
   border: 0;
-  border-radius: 12px;
+  border-radius: 0;
   padding: 12px 16px;
   font: inherit;
   min-width: 240px;

@@ -19,8 +19,8 @@
   --valge: #ffffff;
   --roheline: #16a34a;
   --punane: #e5484d;
-  --raadius: 16px;
-  --raadius-vaike: 10px;
+  --raadius: 0;
+  --raadius-vaike: 0;
   --vari: 0 10px 30px -12px rgba(15, 23, 42, 0.18);
   --vari-vaike: 0 1px 3px rgba(15, 23, 42, 0.08);
   --laius: 1240px;
@@ -79,7 +79,7 @@ img {
   justify-content: center;
   gap: 8px;
   border: 0;
-  border-radius: 12px;
+  border-radius: 0;
   padding: 12px 20px;
   font: inherit;
   font-weight: 600;
@@ -173,7 +173,7 @@ img {
   flex: 1;
   display: flex;
   background: var(--taust);
-  border-radius: 12px;
+  border-radius: 0;
   padding: 4px;
 }
 
@@ -196,7 +196,7 @@ img {
   font-weight: 600;
   color: var(--tume);
   padding: 10px 14px;
-  border-radius: 12px;
+  border-radius: 0;
   background: var(--sinine-hele);
 }
 
@@ -207,7 +207,7 @@ img {
   min-width: 22px;
   height: 22px;
   padding: 0 6px;
-  border-radius: 11px;
+  border-radius: 0;
   background: var(--kollane);
   color: var(--tume);
   font-size: 12px;
@@ -276,7 +276,7 @@ img {
 .toode {
   background: var(--valge);
   border: 1px solid var(--joon);
-  border-radius: var(--raadius);
+  border-radius: 0;
   padding: 14px;
   display: flex;
   flex-direction: column;
@@ -291,7 +291,7 @@ img {
 .toode-pilt {
   position: relative;
   background: var(--taust);
-  border-radius: var(--raadius-vaike);
+  border-radius: 0;
   aspect-ratio: 1 / 1;
   display: grid;
   place-items: center;
@@ -307,7 +307,7 @@ img {
   top: 10px;
   left: 10px;
   padding: 3px 8px;
-  border-radius: 6px;
+  border-radius: 0;
   font-size: 12px;
   font-weight: 700;
   color: var(--valge);
@@ -377,7 +377,7 @@ img {
   background: var(--tume);
   color: var(--valge);
   padding: 12px 20px;
-  border-radius: 12px;
+  border-radius: 0;
   box-shadow: var(--vari);
   transition: transform 0.3s;
   z-index: 50;
@@ -508,7 +508,7 @@ main > h1 {
   list-style: none;
   background: var(--valge);
   border: 1px solid var(--joon);
-  border-radius: var(--raadius-vaike);
+  border-radius: 0;
   box-shadow: var(--vari);
 }
 
@@ -520,7 +520,7 @@ main > h1 {
 .rippmenyy-loend a {
   display: block;
   padding: 9px 12px;
-  border-radius: 8px;
+  border-radius: 0;
   font-weight: 500;
   white-space: nowrap;
 }
