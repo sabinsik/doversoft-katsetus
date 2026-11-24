@@ -72,9 +72,11 @@
 .korvi-rida img {
   width: 72px;
   height: 72px;
-  padding: 10px;
+  padding: 6px;
   border-radius: 0;
-  background: var(--taust);
+  background: var(--valge);
+  border: 1px solid var(--joon);
+  object-fit: contain;
 }
 
 .korvi-rida h3 {

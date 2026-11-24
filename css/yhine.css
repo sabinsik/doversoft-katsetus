@@ -299,10 +299,18 @@ img {
   margin-bottom: 12px;
 }
 
-/* Päris tootepildid on erineva suurusega: mahutame need kasti, ilma venitamata */
+/* Päris tootepildid on erineva suurusega. Pildikast on alati ruut ja pilt
+   asetatakse kasti sisse (position: absolute), nii et pikk pilt ei venita kasti
+   ja kõik kaardid on ühesuurused. object-fit: contain = pilt mahub tervikuna. */
+.toode-pilt {
+  overflow: hidden;
+}
+
 .toode-pilt img {
-  width: 80%;
-  height: 80%;
+  position: absolute;
+  inset: 8%;
+  width: 84%;
+  height: 84%;
   object-fit: contain;
 }
 

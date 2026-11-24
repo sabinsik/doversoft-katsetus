@@ -14,17 +14,20 @@
   margin-top: 16px;
 }
 
+/* Suur pilt on alati ruudukujulises kastis, ükskõik kui pikk pilt on */
 .toote-pilt-suur {
+  position: relative;
   aspect-ratio: 1 / 1;
-  display: grid;
-  place-items: center;
+  overflow: hidden;
   border: 1px solid var(--joon);
   background: var(--valge);
 }
 
 .toote-pilt-suur img {
-  width: 85%;
-  height: 85%;
+  position: absolute;
+  inset: 6%;
+  width: 88%;
+  height: 88%;
   object-fit: contain;
 }
 
