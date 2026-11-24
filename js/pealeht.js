@@ -92,6 +92,6 @@ document.getElementById("kategooriad").innerHTML = KATEGOORIAD.map((kat) => {
 /* ---------- 5) Uudiskiri ---------- */
 document.getElementById("uudiskirja-vorm").addEventListener("submit", (sundmus) => {
   sundmus.preventDefault();
-  naitaTeadet("Aitäh! Oled uudiskirjaga liitunud 💌");
+  naitaTeadet("Aitäh! Oled uudiskirjaga liitunud");
   sundmus.target.reset();
 });

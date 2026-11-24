@@ -39,7 +39,7 @@ function naitaKorvi() {
           <button type="button" data-muuda="1" data-kood="${kood}" aria-label="Suurenda kogust">+</button>
         </div>
         <span class="rea-summa">${hind(toode.hind * kogus)}</span>
-        <button type="button" class="eemalda" data-eemalda="${kood}" aria-label="Eemalda toode">🗑</button>
+        <button type="button" class="eemalda" data-eemalda="${kood}" aria-label="Eemalda toode">✕</button>
       </div>`;
   }).join("");
 
@@ -76,7 +76,7 @@ function arvutaSummad() {
   // Riba, mis näitab, kui palju on jäänud tasuta tarneni
   const puudu = TASUTA_TARNE_ALATES - tooted;
   document.getElementById("tasuta-tarne").textContent =
-    puudu > 0 ? "Lisa veel " + hind(puudu) + " ja tarne on tasuta 🚚" : "🎉 Sul on tasuta tarne!";
+    puudu > 0 ? "Lisa veel " + hind(puudu) + " ja tarne on tasuta" : "Sul on tasuta tarne!";
   document.getElementById("tasuta-riba").style.width = Math.min(100, (tooted / TASUTA_TARNE_ALATES) * 100) + "%";
 }
 

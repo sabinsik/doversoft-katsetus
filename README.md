@@ -2,7 +2,7 @@
 
 Tartu Ülikooli aine **Sissejuhatus erialasse (LTAT.03.002)** veebilehe rühmatöö.
 
-🔗 **Leht internetis:** https://kodu.ut.ee/~KASUTAJANIMI/ *(lisa siia, kui leht on üleval)*
+**Leht internetis:** https://kodu.ut.ee/~KASUTAJANIMI/ *(lisa siia, kui leht on üleval)*
 
 ## Mida veebileht tutvustab? (eesmärk)
 
