@@ -6,7 +6,7 @@ Tartu Ülikooli aine **Sissejuhatus erialasse (LTAT.03.002)** veebilehe rühmat�
 
 ## Mida veebileht tutvustab? (eesmärk)
 
-Doversoft on väljamõeldud ettevõte, mis müüb kontori- ja koolitarbeid (paber, kirjatarbed, kaustad, kohv jne).
+Doversoft on ettevõte, mis müüb kontori- ja koolitarbeid (paber, kirjatarbed, kaustad, kohv jne).
 Lehe eesmärk on aidata ettevõttel end klientidele tutvustada ja lihtsustada tellimist:
 
 - **Pealeht** (`index.html`) — pakkumiste slaider, nädala pakkumine koos taimeriga, kiirtellimus tootekoodiga, populaarsed tooted ja kategooriad.
